@@ -1,0 +1,25 @@
+
+<% if !@buttons.nil? %>
+    <div class="right_text">
+        <h2>Listar Botões<br />
+        <span> Gerencie seus botões </span>
+        </h2>
+    </div>
+    <% @buttons.each do |button| %>
+      <div style="float: left;">
+        <%= player button %> <br />
+        <div style="text-align: center; margin-bottom: 10px;"><%= link_to 'Editar', edit_button_path(button) %> | <%= link_to 'Apagar', button, :confirm => 'Tem certeza?', :method => :delete %></div>
+      </div>
+    <% end %>
+<% else %>
+    <div class="right_text">
+        <h2>Not Found<br />
+        <span> Please try again...</span>
+        </h2>
+    </div>
+<% end %>
+
+<br clear="all" />
+<br clear="all" />
+
+<!--<%#= link_to 'New Button', new_button_path %>-->

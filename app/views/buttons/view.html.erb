@@ -1,0 +1,41 @@
+<%
+arrRequest = request.fullpath.split("&")
+%>
+<% content_for(:head) do %>
+    <meta property="og:site_name" content="1Blah.com - <%= @button.title %>"/>
+    <meta property="og:title" content="1Blah.com - <%= @button.title %>"/>
+    <meta property="og:type" content="audio"/>
+    <meta property="og:url" content="http://1blah.com<%= arrRequest[0] %>"/>
+    <meta property="fb:app_id" content="190001861118360"/>
+    <meta property="og:image" content="http://1blah.com/assets/logo.png"/>
+
+    <meta property="og:audio" content="http://1blah.com<%= @button.media.url%>" />
+    <meta property="og:audio:title" content="1Blah.com - <%= @button.title %>" />
+    <meta property="og:audio:artist" content="1Blah.com - <%= @button.title %>" />
+    <meta property="og:audio:album" content="1Blah.com - <%= @button.category.name %>" />
+    <meta property="og:audio:type" content="<%= @button.media_content_type %>" />
+    <meta property="og:description" content="Envie 1Blah para quem merece" />
+<% end %>
+
+<div class="right_text">
+    <h2>Compartilhar<br />
+    <span> Compartilhe seu Blah com amigos no Facebook ou Twitter.</span>
+    </h2>
+</div>
+
+<div style="float: left;">
+    <%= player @button %> <br />
+</div>
+<p>Clique no botão para enviar 1Blah pelo Twitter.</p>
+<a href="https://twitter.com/intent/tweet?button_hashtag=1Blah&text=<%= @button.title %>" class="twitter-hashtag-button" data-lang="pt" data-size="large" data-url="http://1blah.com<%= request.fullpath %>">Tweet #1Blah</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<br />
+<span style="font:normal 12px Arial, Helvetica, sans-serif; color:#606060; line-height:1.8em; padding:5px; margin:0;">Você pode copiar e colar a URL abaixo diretamente no seu Post no Facebook ou usar as ferramentas para enviar seu comentário diretamente da página 1Blah.com.</span>
+<br />
+<input type="text" value="http://1blah.com<%= arrRequest[0] %>" size="50" /><br />
+<br clear="all" />
+<p>Use o 1blah.com para postar sua vinheta no Facebook</p>
+<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div><br/>
+
+<div class="fb-comments" data-href="http://1blah.com<%= arrRequest[0] %>" data-num-posts="5" data-width="470"></div>
+<br clear="all" />

@@ -1,0 +1,80 @@
+pt:
+  messages:
+    button_created: "Seu Blah foi criado com sucesso!"
+    button_edited: "Seu Blah foi editado com sucesso!"
+    session_created: "Logado com suscesso."
+    session_ended: "Sessão encerrada com sucesso."
+    invalid_login: "Email ou senha inválido."
+    not_authorized: "Não autorizado!"
+  home:
+    title: "1Blah - Mande um Blah pra quem merece!"
+    search: "Busca"
+    menu:
+      recent: "Mais Recentes"
+      top_executed: "Mais Tocados"
+      new_blah: "Novo Blah"
+      registered_blahs: "Meus Blahs"
+      favorites:  "Meus Favoritos"
+      ranking: "Ranking"
+      contact: "Contato"
+    logged_as: "Logado como"
+    log_out:  "Sair"
+    login: "Entrar"
+    login_text: "Cadastre áudios marcantes ou use os já existentes."
+    register: "Cadastrar"
+    categories: "Categorias"
+    footer:
+      visits: "Visitas: "
+      own_visits: "Suas Visitas: "
+      total_plays: "Total de Toques: "
+      copyright: "® 1Blah - Mande um Blah para quem merece."
+      rss: "RSS"
+  player:
+    plays: "Toques"
+    share: "Compartilhar"
+    add_favorites: "Adicionar aos Favoritos"
+    remove_favorites: "Remover dos Favoritos"
+  navigation:
+    next: "Próximo"
+    previous: "Anterior"
+    back: "Voltar"
+  browser_detection: "Atualize seu navegador. É necessário HTML5."
+  application:
+    new: "Novo"
+    delete: "Apagar"
+    delete_confirmation: "Você realamente deseja apagar?"
+    send: "Enviar"
+    save: "Gravar"
+  errors: &errors
+    messages:
+      mp3_content: "deve ser no formato mp3"
+  activerecord:
+    models:
+      button: "Blah"
+      contact: "Contato"
+      category: "Categoria"
+      user: "Usuário"
+    attributes:
+      button:
+        category_id: "Categoria"
+        media_file_name: "Arquivo"
+        media: "Arquivo"
+        title: "Título"
+        description: "Palavras Chaves(usadas nas buscas, separar por espaço)"
+      contact:
+        name: "Nome"
+        email: "Email"
+        subject: "Assunto"
+        message: "Mensagem"
+      category:
+        name: "Nome"
+        description: "Descrição"
+      user:
+        email: "Email"
+        nickname: "Apelido (para identificá-lo a outros usuários)"
+        password: "Senha"
+        password_confirmation: "Confirmação de Senha"
+    errors:
+      messages:
+        paperclip:
+          size: "tamanho inválido, deve ter no máximo %{size}"

@@ -1,0 +1,9 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  paperclip:
+    errors:
+      media_size: "invalid size, should have a maximum of %{size}!"
+      media_format: "tipo de arquivo inválido"
+      media_presence: "não pode ser vazio"

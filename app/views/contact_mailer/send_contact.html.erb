@@ -1,0 +1,9 @@
+<h2>Contato enviado pelo site - 1Blah.com</h2>
+<fieldset>
+  <legend><%= @contact.created_at.strftime("%d/%m/%Y %H:%M:%S") %></legend>
+  Nome:<%= @contact.name  %><br />
+  Email: <%= @contact.email  %><br />
+  Assunto: <%= @contact.subject  %><br />
+  Mensagem: <%= @contact.message  %><br />
+</fieldset>
+<hr />

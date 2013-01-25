@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <title><%= t "home.title" %> Instant Buttons, Instant Moments, Bordões, Vinhetas, Frases Marcantes, Blah Blah Blah...</title>
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <% if content_for?(:head) %>
+    <%= yield :head %>
+  <% end %>
+  <meta name="keywords" content="instant button, instant buttons, instant, instants, button, buttons, fun, sound, sounds, happy, custom button, custon instant, funny, instantsfun, botoneira, botonera, funny audios, vinhetas, bordões" />
+  <% @meta_contents = Button.all.map(&:title).join(', ') %>
+  <meta name="keywords" content="<%= @meta_contents %>" />
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30612572-1']);
+    _gaq.push(['_setDomainName', '.1blah.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=190001861118360";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo"><a href="<%= root_url %>"><%= image_tag("logo.png", :size => "232x74", :alt => "#{t("home.title")}") %></a></div>
+      <div style="float:left; margin: 10px 0px 0px 50px;">
+        <script type="text/javascript">
+        	bb_bid = "1658539";
+        	bb_lang = "pt-BR";
+        	bb_keywords = "";
+        	bb_name = "custom";
+        	bb_limit = "7";
+        	bb_format = "bbc";
+        </script>
+        <script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
+      </div>
+      <div style="float:right; margin: 45px 0px 0px 15px">
+        <a href="<%= locale_builder(request.fullpath, "pt") %>"><%= image_tag("flag_pt.jpg") %></a>&nbsp;<a href="<%= locale_builder(request.fullpath, "en") %>"><%= image_tag("flag_en.jpg") %></a>
+      </div>
+      <div class="clr"></div>
+      <div class="menu">
+        <ul>
+          <li><a href="/" <%= is_menu_selected(params[:menu], '/') %>><span><%= t("home.menu.recent")%> </span></a></li>&nbsp;
+          <li><a href="/melhores" <%= is_menu_selected(params[:menu], 'melhores') %>><span><%= t("home.menu.top_executed")%></span></a></li>&nbsp;
+          <li><a href="/novo_blah" <%= is_menu_selected(params[:menu], 'novo_blah') %>><span><%= t("home.menu.new_blah")%></span></a></li>&nbsp;
+          <li><a href="/private" <%= is_menu_selected(params[:menu], 'private') %>><span><%= t("home.menu.registered_blahs")%></span></a></li>&nbsp;
+          <li><a href="/favoritos" <%= is_menu_selected(params[:menu], 'favoritos') %>><span><%= t("home.menu.favorites")%></span></a></li>&nbsp;
+          <li><a href="/ranking" <%= is_menu_selected(params[:menu], 'ranking') %>><span><%= t("home.menu.ranking")%></span></a></li>&nbsp;
+          <li><a href="/contato" <%= is_menu_selected(params[:menu], 'contato') %>><span><%= t("home.menu.contact")%></span></a></li>&nbsp;
+        </ul>
+      </div>
+      <div class="click">
+        <div id="user_header">
+          <% if current_user %>
+              <%= t("home.logged_as")%> <%= current_user.email %><br />
+            <%= link_to "#{t('home.log_out')}", session_path("current"), :method=> "delete" %>
+          <% else %>
+            <%= t("home.login_text") %><br />
+            <%= link_to "#{t('home.register')}", new_user_path %> or
+            <%= link_to "#{t('home.login')}", new_session_path %>
+          <% end %>
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+    <br />
+    <!--<h3>Algum Texto aqui?</h3>-->
+    <div class="main_left">
+      <div class="search">
+        <form id="form_search" name="form_search" action="/">
+          <p><%= t("home.search") %></p><label>
+          <span>
+          <input name="search" type="text" class="keywords" id="search" maxlength="50" value="<%= params[:search] if params[:search]%>" />
+          </span>
+          <%= image_submit_tag("search.gif", :class=>"button") %>
+          </label>
+        </form>
+      </div>
+      <br />
+      <h2><%= t("home.categories")%></h2>
+      <ul class="serv">
+        <% Category.order("name").all.each do |category| %>
+            <li class="serv"><a href="/categoria/<%= category.name.gsub(" ", "+") %>"><%= category.name %></a></li>
+        <% end %>
+      </ul>
+      <br clear="all" />
+      <script type="text/javascript">
+      	bb_bid = "1658539";
+      	bb_lang = "pt-BR";
+      	bb_keywords = "";
+      	bb_name = "custom";
+      	bb_limit = "4";
+      	bb_format = "bbl";
+      </script>
+      <script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
+    </div>
+    <div class="main_right">
+      <div class="clr"></div>
+      <% if flash[:notice] %>
+          <div class="flash notice"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+          <div class="flash errors"><%= flash[:alert] %></div>
+      <% end %>
+
+      <%= yield %>
+
+      <div class="clr"></div>
+
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <div style="width:100%; text-align: center;">
+        <a href="#"><strong><%= t("home.footer.visits")%> <span id="visit_count_info"></span></strong></a>&nbsp;<a href="#"><strong><%= t("home.footer.total_plays")%> <span id="play_count_info"></span></strong></a>
+        <% if session[:user_id] %>
+            <a href="#"><strong><%= t("home.footer.own_visits")%> <span id="private_visit_count_info"></span></strong></a>&nbsp;
+        <% end %>
+      </div>
+      <p class="leftt"> <%= t("home.footer.copyright") %> <a href="/"><br />
+        Home</a> | <a href="/contato"><%= t("home.menu.contact") %></a> | <a href="#"><%= t("home.footer.rss") %></a>
+      </p>
+      <p class="right">
+        (MR) <a href="#"><strong>Guess Who?!</strong></a><br />
+        Instant Buttons, Instant Moments, Bordões, Vinhetas, Blah Blah Blah...
+      </p>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <br />
+</div>
+</body>
+</html>

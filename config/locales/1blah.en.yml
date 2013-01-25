@@ -1,0 +1,80 @@
+en:
+  messages:
+      button_created: "Blah created!"
+      button_edited: "Blah edited!"
+      session_created: "You're logged in!"
+      session_ended: "You're logged out!"
+      invalid_login: "User or password invalid."
+      not_authorized: "Not authorized!"
+  home:
+    title: "1Blah - Send one Blah to whom deserve it!"
+    search: "Search"
+    menu:
+      recent: "Recent"
+      top_executed: "Most Played"
+      new_blah: "New Blah"
+      registered_blahs: "My Blahs"
+      favorites:  "My Favorites"
+      ranking: "Ranking"
+      contact: "Contact Us"
+    logged_as: "Logged as"
+    log_out:  "Logout"
+    login: "Login"
+    login_text: "Upload your audios or enjoy those already created."
+    register: "Register"
+    categories: "Categories"
+    footer:
+      visits: "Visits: "
+      own_visits: "Your Visits: "
+      total_plays: "Total Plays: "
+      copyright: "® 1Blah - Send one Blah to who ever deserves it."
+      rss: "RSS"
+  player:
+    plays: "plays"
+    share: "Share"
+    add_favorites: "Add to Favorites"
+    remove_favorites: "Remove from Favorites"
+  navigation:
+    next: "Next"
+    previous: "Previous"
+    back: "Back"
+  browser_detection: "Update your browser for one enabled for HTML5."
+  application:
+    new: "New"
+    delete: "Delete"
+    delete_confirmation: "Are you sure?"
+    send: "Send"
+    save: "Save"
+  errors: &errors
+    messages:
+      mp3_content: "must be a MP3"
+  activerecord:
+    models:
+      button: "Blah"
+      contact: "Contact Us"
+      category: "Category"
+      user: "User"
+    attributes:
+      button:
+        category_id: "Category"
+        media_file_name: "File"
+        media: "File"
+        title: "Title"
+        description: "Tags (used for search)"
+      contact:
+        name: "Name"
+        email: "Email"
+        subject: "Subject"
+        message: "Message"
+      category:
+        name: "Name"
+        description: "Description"
+      user:
+        email: "Email"
+        nickname: "Nickname"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+    errors:
+      messages:
+        paperclip:
+          size: "invalid size, should have a maximum of %{size}"

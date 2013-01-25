@@ -1,0 +1,24 @@
+<% if !@buttons.nil? %>
+    <% if @category %>
+    <div class="right_text">
+        <h2><%= @category.name %><br />
+        <span> <%= @category.description %> </span>
+        </h2>
+    </div>
+    <% end %>
+    <p><%= will_paginate @buttons, :previous_label => t("navigation.previous"), :next_label => t("navigation.next") %> </p>
+    <% @buttons.each do |button| %>
+      <%=  player button %>
+    <% end %>
+    <br clear="all" />
+    <p><%= will_paginate @buttons, :previous_label => t("navigation.previous"), :next_label => t("navigation.next") %></p>
+<% else %>
+    <div class="right_text">
+        <h2>Atualize seu navegador. É necessário HTML5...</h2>
+    </div>
+<% end %>
+
+<br clear="all" />
+<br clear="all" />
+
+<!--<%#= link_to 'New Button', new_button_path %>-->

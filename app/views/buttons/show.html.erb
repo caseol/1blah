@@ -1,0 +1,10 @@
+
+<% if (@button.media?) %>
+    Mídia Atual: <%= link_to @button.media_file_name, @button.media.url %><br /><br />
+
+    <%= player(@button)  %>
+
+<% end %>
+<br clear="all"/>
+<%= link_to 'Editar', edit_button_path(@button) %> |
+<%= link_to 'Voltar', buttons_path %>

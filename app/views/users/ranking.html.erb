@@ -1,0 +1,61 @@
+<h1>Ranking 1Blah</h1>
+
+<h2>Melhores Colaboradores</h2>
+<table id="ranking_publicadores" class='display'>
+  <thead>
+  <tr>
+    <th>Apelido</th>
+    <th>Qtd. de Blahs</th>
+  </tr>
+  <thead>
+  <tbody>
+    <% @ranking_publicadores.each do |publicadores| %>
+      <tr>
+        <td><%= publicadores.nickname %></td>
+        <td align="center"><%= publicadores.rank %></td>
+      </tr>
+    <% end %>
+    <tbody>
+</table>
+
+<br />
+
+<h2>Quantidade Total De Blahs Executados</h2>
+<table id="ranking_tocadores" class='display'>
+  <thead>
+  <tr>
+    <th>Apelido</th>
+    <th>Qtd. de Toques</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @ranking_tocadores.each do |tocadores| %>
+      <tr>
+        <td><%= tocadores.nickname %></td>
+        <td align="center"><%= tocadores.total_toques %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<h2>Toques x Blahs </h2>
+<table id="ranking_media_toques" class='display'>
+  <thead>
+  <tr>
+    <th>Apelido</th>
+    <th>Toques x Blahs</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @ranking_media_toques.each do |media_toques| %>
+      <tr>
+        <td><%= media_toques.nickname %></td>
+        <td align="center"><%= media_toques.media %>&nbsp;T/B</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br clear="all" />
+<br clear="all" />

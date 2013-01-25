@@ -1,0 +1,40 @@
+<%= form_for(@button, :html => { :multipart => true }) do |f| %>
+  <% if @button.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @button.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.select(:category_id, Category.order("name").all.map {|c| [c.name, c.id]}, options ={:prompt => "Categoria"}, {:onchange=>"",:class=>"",:style=>"width: 217px; "})%>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :style=>"width: 210px; height: 50px;" %>
+  </div>
+  
+  <% if @button.media? && !@button.media.dirty? %>
+    <%= player @button %>
+  <% end %>
+
+  <br clear="all" />
+  <br />
+  <div class="field">
+    <%= f.label :media %><br />
+    <%= f.file_field :media %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t("application.save"), :style=>"float:right;" %>
+  </div>
+  <br clear="all" />
+<% end %>
